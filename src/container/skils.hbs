@@ -4,34 +4,17 @@
 }}
 
 <div>
-
-    {{#with main}}
+  {{#with main}}
   <main>
-    <section>
-    {{#with summary}}
-      {{>title data=title}}
-    <div>
-      <p>
-        {{text}}
-      </p>
-    {{/with}}
-    </div>
+ {{>title data='All skils'}}
+    <ul>
+      {{#each skils}}
+      <li>{{this}}</li>
+      {{/each}}
+    </ul>
 
-</section>
-    <section>
-    {{#with experience}}
-      {{>title data=title}}
-    <div>
-      <p>
-        {{text}}
-    {{/with}}
-      </p>
-    </div>
-
-</section>
   </main>
   {{/with}}
-
 
 </div>
 
