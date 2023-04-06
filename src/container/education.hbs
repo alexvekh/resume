@@ -7,13 +7,29 @@
   {{#with main}}
     <main>
       <section>
-        {{>title data='My education'}}
+        {{>title big=true data='My education'}}
         <ul>
           {{#each educations}}
-            <li>{{this}}</li>
+            <li>
+              {{name}}
+              {{#unless isEnd}}(ще в процесі){{/unless}}
+            </li>
           {{/each}}
         </ul>
       </section>
+
+      <section>
+        {{>title data='My certificates'}}
+        <ul>
+          {{#each certificates}}
+            <li>
+              {{name}} ({{id}})
+            </li>
+          {{/each}}
+        </ul>
+      </section>
+
+
     </main>
   {{/with}}
 </div>

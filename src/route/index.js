@@ -2,6 +2,34 @@
 const express = require('express')
 // Cтворюємо роутер - місце, куди ми підключаємо ендпоїнти
 const router = express.Router()
+// ================================================================
+
+var header = {
+  name: {
+    firstname: 'Dmytro',
+    lastname: 'Ivanov',
+  },
+  position: 'Junior Fullstack JS Developer',
+  salary: '600 $ в місяц',
+  address: '2010 Ocean ave, Brooklyn, NY, 11230',
+}
+
+footer = {
+  social: {
+    email: {
+      text: 'dmytro@mail.com',
+      href: 'mailto:dmytro@mail.com',
+    },
+    phone: {
+      text: '+380670000123',
+      href: 'tel:+380670000123',
+    },
+    linkedin: {
+      text: 'LinkedIn',
+      href: 'https://www.linkedin.com/in/dmytro-test',
+    },
+  },
+}
 
 // ================================================================
 
@@ -23,17 +51,9 @@ router.get('/summary', function (req, res) {
   //             ↙ cюди вводимо назву файлу з сontainer
   res.render('summary', {
     // ↙ сюди вводимо JSON дані
-    page: { title: 'Resume' },
+    page: { title: 'Resume | Summary' },
 
-    header: {
-      name: {
-        firstname: 'Dmytro',
-        lastname: 'Ivanov',
-      },
-      position: 'Junior Fullstack JS Developer',
-      salary: '600 $ в місяц',
-      address: '2010 Ocean ave, Brooklyn, NY, 11230 ',
-    },
+    header,
 
     main: {
       summary: {
@@ -56,22 +76,7 @@ router.get('/summary', function (req, res) {
       },
     },
 
-    footer: {
-      social: {
-        email: {
-          text: 'dmytro@mail.com',
-          href: 'mailto:dmytro@mail.com',
-        },
-        phone: {
-          text: '+380670000123',
-          href: 'tel:+380670000123',
-        },
-        linkedin: {
-          text: 'LinkedIn',
-          href: 'https://www.linkedin.com/in/dmytro-test',
-        },
-      },
-    },
+    footer,
   })
 })
 
@@ -82,45 +87,31 @@ router.get('/skils', function (req, res) {
   //             ↙ cюди вводимо назву файлу з сontainer
   res.render('skils', {
     // ↙ сюди вводимо JSON дані
-    page: { title: 'Resume' },
+    page: { title: 'Resume | Skils' },
 
-    header: {
-      name: {
-        firstname: 'Dmytro',
-        lastname: 'Ivanov',
-      },
-      position: 'Junior Fullstack JS Developer',
-      salary: '600 $ в місяц',
-      address: '2010 Ocean ave, Brooklyn, NY, 11230 ',
-    },
+    header,
 
     main: {
       skils: [
-        'HTML',
-        'Handlebars',
-        'VS Code',
-        'Git',
-        'Terminal',
-        'NPM',
+        { name: 'HTML', point: 9, isTop: true },
+        { name: 'Handlebars', point: 6, isTop: true },
+        { name: 'VS Code', point: 6, isTop: true },
+        { name: 'Git', point: 8, isTop: true },
+        { name: 'Terminal', point: 4, isTop: false },
+        { name: 'NPM', point: 3, isTop: false },
+        { name: 'CSS', point: 4 },
+        { name: 'React.js', point: 0, isTop: false },
+        { name: 'PHP', point: null, isTop: false },
+      ],
+
+      hobbies: [
+        { name: 'Stock Marker trading', isMain: true },
+        { name: 'Guitar', isMain: true },
+        { name: 'VR table tenis', isMain: false },
       ],
     },
 
-    footer: {
-      social: {
-        email: {
-          text: 'dmytro@mail.com',
-          href: 'mailto:dmytro@mail.com',
-        },
-        phone: {
-          text: '+380670000123',
-          href: 'tel:+380670000123',
-        },
-        linkedin: {
-          text: 'LinkedIn',
-          href: 'https://www.linkedin.com/in/dmytro-test',
-        },
-      },
-    },
+    footer,
   })
 })
 
@@ -131,43 +122,123 @@ router.get('/education', function (req, res) {
   //             ↙ cюди вводимо назву файлу з сontainer
   res.render('education', {
     // ↙ сюди вводимо JSON дані
-    page: { title: 'Resume' },
 
-    header: {
-      name: {
-        firstname: 'Dmytro',
-        lastname: 'Ivanov',
-      },
-      position: 'Junior Fullstack JS Developer',
-      salary: '600 $ в місяц',
-      address: '2010 Ocean ave, Brooklyn, NY, 11230 ',
-    },
+    page: { title: 'Resume | Education' },
+
+    header,
 
     main: {
       educations: [
-        "Chernihiv Taras Shevchenko National Teachers' Training University",
-        'Chernihiv State Institute of Economics and Management',
-        'Coders Campus Full-Stack Java Web Developer online Bootcamp',
-        'IT-BRAINS Full-Stack JavaScript Developer online (now)',
+        {
+          name: "Chernihiv Taras Shevchenko National Teachers' Training University",
+          isEnd: true,
+        },
+        {
+          name: 'Chernihiv State Institute of Economics and Management',
+          isEnd: true,
+        },
+        {
+          name: 'Coders Campus Full-Stack Java Web Developer online Bootcamp',
+          isEnd: true,
+        },
+        {
+          name: 'IT-BRAINS Full-Stack JavaScript Developer online',
+          isEnd: false,
+        },
+      ],
+
+      certificates: [
+        { name: 'First sertifacate', id: 80001 },
+        { name: 'Second sertifacate', id: 820002 },
+        { name: 'Third sertifacate', id: 80003 },
       ],
     },
 
-    footer: {
-      social: {
-        email: {
-          text: 'dmytro@mail.com',
-          href: 'mailto:dmytro@mail.com',
-        },
-        phone: {
-          text: '+380670000123',
-          href: 'tel:+380670000123',
-        },
-        linkedin: {
-          text: 'LinkedIn',
-          href: 'https://www.linkedin.com/in/dmytro-test',
-        },
-      },
+    footer,
+  })
+})
+
+router.get('/skils', function (req, res) {
+  //             ↙ cюди вводимо назву файлу з сontainer
+  res.render('skils', {
+    // ↙ сюди вводимо JSON дані
+    page: { title: 'Resume | Skils' },
+
+    header,
+
+    main: {
+      skils: [
+        { name: 'HTML', point: 9, isTop: true },
+        { name: 'Handlebars', point: 6, isTop: true },
+        { name: 'VS Code', point: 6, isTop: true },
+        { name: 'Git', point: 8, isTop: true },
+        { name: 'Terminal', point: 4, isTop: false },
+        { name: 'NPM', point: 3, isTop: false },
+        { name: 'CSS', point: 4 },
+        { name: 'React.js', point: 0, isTop: false },
+        { name: 'PHP', point: null, isTop: false },
+      ],
+
+      hobbies: [
+        { name: 'Stock Marker trading', isMain: true },
+        { name: 'Guitar', isMain: true },
+        { name: 'VR table tenis', isMain: false },
+      ],
     },
+
+    footer,
+  })
+})
+
+// ================================================================
+
+//              ↙ тут вводимо шлях (PATH) до сторінки
+router.get('/work', function (req, res) {
+  //             ↙ cюди вводимо назву файлу з сontainer
+  res.render('work', {
+    // ↙ сюди вводимо JSON дані
+    layout: 'big',
+
+    page: { title: 'Resume | Work' },
+
+    header,
+
+    main: {
+      works: [
+        {
+          position: 'Junior Fullstack Developer',
+          company: {
+            name: 'IT Brains',
+            url: 'https://if-brains.com.ua',
+          },
+          duration: {
+            from: '10.10.2022',
+            to: null,
+          },
+          projectAmmount: 3,
+          projects: [
+            {
+              name: 'Resume',
+              url: 'https//resume.com.ua',
+              about: 'This personal web-resume',
+              stackAmount: 3,
+              stacks: [
+                { name: 'React.js' },
+                { name: 'HTML/CSS' },
+                { name: 'Node.js' },
+              ],
+              awardAmount: 2,
+              awards: [
+                { name: 'bacgrount verification' },
+                { name: 'second award' },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+
+    footer,
   })
 })
 
