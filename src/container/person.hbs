@@ -1,0 +1,111 @@
+{{! 
+Це код container файлу для summary сторінки, 
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+}}
+
+<div>
+  {{#with person}}
+    <div>
+      <h1>{{name}}</h1>
+      
+      <b>{{age}} year</b>, sex: <b>{{gender}}</b>
+    </div>
+    <br />
+    <div><address>
+      {{#with address}}
+        <div>
+          {{street}},
+          {{city}},
+          {{state}},
+          {{zip}},
+          {{country}}
+        </div>
+      {{/with}}</div></address>
+    <hr>
+
+    <section>
+      {{>title data='Education:' big=true}}
+      <ul>
+      {{#each education}}
+        <li>
+          <strong>{{university}}</strong>,
+          
+          <br />
+          {{major}}
+          -
+          <em>{{degree}}</em>, {{graduationYear}}
+        </li>
+      {{/each}}
+      </ul>
+    </section>
+
+    <section>
+      {{>title data='Work experience:' big=true}}
+      {{#each workExperience}}
+      <ul>
+        <li>{{title}} in <span title='Company founded in {{year_founded}}'>{{company}}</span></title>({{industry}}) from {{startDate}} to {{endDate}}<br>
+            <ol>
+            {{#each responsibilities}}
+              <li>{{this}}</li>
+            {{/each}}
+          </ol><br />
+
+      {{>title data='Co-workers:'}}
+          <ul>
+            {{#each employees}}
+            <li>{{position}} of {{department}} department: <b>{{name}}</b>
+              <ol>
+              {{#each projects}}
+              <li><mark><b>{{name}}. </b>{{description}}.</mark> ({{status}}) </li>
+                  <ul>                   
+                    {{#each teams}}
+                    <li> Team: <em>{{team_name}}: </em> <br/>
+                    {{#with team_leader}}
+                      TL: {{title}} <b>{{name}}</b> (<email>{{email}}</email>)
+                    {{/with}} <br>
+                      Members:
+                        <ul>
+                          {{#each team_members}}
+                            <li>{{title}} <b>{{name}}</b> (<email>{{email}}</email>)
+                            <small><div><b><u>Skils:</u></b><ul>
+                              {{#each skills}}
+                              <li>{{this}}</li>
+                              {{/each}}
+                            </ul></div>
+                            <div><b><u>Projects:</u></b><ul>
+                              {{#each projects}}
+                                <li><mark><b>{{name}}</mark> </b>{{description}}. 
+                                  <div>Technologies: <ul>
+                                  {{#each technologies}}
+                                    <li>{{this}}</li>
+                                  {{/each}}
+                                  </ul></div>
+                                  <div>Team members: <ul>
+                                  {{#each team_members}}
+                                    <li>{{title}}: {{name}}</li>
+                                  {{/each}}
+                                  </ul></div></small>
+                                 </li>
+                              {{/each}}
+                            </ul></div>     
+                            </li>
+                          {{/each}}
+                        </ul>
+                    </li>
+                    {{/each}}
+                  </ul><hr>
+              {{/each}}
+              </ol>
+            </li>
+            {{/each}}
+          </ul>        
+        </li>
+      </ul>
+      {{/each}}
+    </section>
+  {{/with}}
+</div>
+{{!-- 
+    Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+    Адже наш layout/default.hbs має вже структуру HTML
+--}}
