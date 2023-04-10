@@ -1,0 +1,103 @@
+{{! 
+Це код container файлу для summary сторінки, 
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+}}
+<main>
+  <h1>{{name}}</h1>
+  <div>{{description}}</div>
+  {{#with history}}
+    <div>Was founded by
+      <b>{{founder}}</b>
+      in
+      {{year}}
+    </div>
+  {{/with}}
+
+<section>
+  {{>title data='Tapes:'}}
+  <ul>
+    {{#each types}}
+      <li>{{this}}</li>
+    {{/each}}
+  </ul>
+</section>
+<section>
+  {{>title data='Syntax:'}}
+      {{#with syntax}}
+<div>
+          <h4><em>Variables:</em></h4>
+          <ul>
+            {{#each variables}}
+              <li> <code>{{this}}</code></li>
+           {{/each}}
+          </ul>
+
+
+          <h4><em>Functions:</em></h4>
+          <ul>
+            {{#each functions}}
+               <li> <code>{{this}}</code></li>
+            {{/each}}
+          </ul>
+
+          <h4><em>Conditionals:</em></h4>
+          <ul>
+            {{#each conditionals}}
+               <li> <code>{{this}}</code></li>
+            {{/each}}
+          </ul>
+
+          <h4><em>Loops:</em></h4>
+          <ul>
+            {{#each loops}}
+               <li> <code>{{this}}</code></li>
+            {{/each}}
+          </ul>
+
+          <h4><em>Classes:</em></h4>
+          <ul>
+            {{#each classes}}
+               <li> <code>{{this}}</code></li>
+            {{/each}}
+          </ul>
+</div>
+    {{/with}}
+
+</section>
+
+<section>
+  {{>title data='Libraries:'}}
+  <ul>
+    {{#each libraries}}
+      <li>{{this}}</li>
+    {{/each}}
+  </ul>
+</section>
+<section>
+  {{>title data='Tools:'}}
+  <ul>
+    {{#each tools}}
+      <li>{{this}}</li>
+    {{/each}}
+  </ul>
+</section>
+
+<section>
+  {{>title data='Community:'}}
+  <ul>
+    {{#each community}}
+      <li>{{name}} ({{type}})</li>
+    {{/each}}
+  </ul>
+</section>
+
+
+
+
+
+</main>
+{{!-- 
+    Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+    Адже наш layout/default.hbs має вже структуру HTML
+--}}
+
