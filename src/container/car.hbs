@@ -1,0 +1,142 @@
+{{! 
+Це код container файлу для summary сторінки, 
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+}}
+<main>
+  <h1>{{make}} {{model}} ({{year}})</h1>
+  <div> Color: <b> {{color}}</b></div>
+  
+  
+  <section>
+ 
+    {{#with features}}
+      {{>title big=true data='Interior'}}
+      {{#with interior}}        
+        <div>
+          {{>title data='Seats:'}}
+          {{#with seats}}
+            <em>Material:</em> <b>{{material}}</b> <br>
+            <em>Color:</em> <b>{{color}}</b> <br>
+            {{#if heated}} <b>Heated</b> {{else}} No heated {{/if}} <br>
+            {{#if ventilated}} <b>Ventilated</b> {{else}} No heated {{/if}}
+          {{/with}}
+        </div>
+        <div>
+           {{>title data='Dashboard:'}}
+          {{#with dashboard}}
+            <em>Material:</em> <b>{{material}}</b> <br>
+            <em>Color:</em> <b>{{color}}</b> <br>
+            <em>Display:</em> {{#with display}}<b>{{size}}", {{type}} ({{resolution}})<br>
+            {{#if touchscreen}} Touchscreen{{/if}}</b> {{/with}}<br>
+          {{/with}}
+        </div>
+                <div>
+          {{>title data='Audio:'}}
+          {{#with audio}}
+            <em>System:</em> <b>{{system}}</b> <br>
+            <em>Speakers:</em> <b>{{speakers}}</b> <br>
+            {{#if subwoofer}} <b>Subwoofer</b> {{/if}}<br>
+            {{#if bluetooth}} <b>Bluetooth</b> {{/if}}<br>
+            {{#if USB}} <b>USB</b> {{/if}}<br>
+          {{/with}}
+        </div>
+        </div>
+      {{/with}}
+      {{>title big=true data='Exterior'}}    
+      {{#with exterior}}
+        {{>title data='Wheels: '}}
+        {{#with wheels}}
+          <em>Size:</em> <b>{{size}} "</b> <br>
+          <em>Type:</em> <b>{{type}}</b> <br>
+          <em>Color:</em> <b>{{color}}</b> <br>
+        {{/with}}
+         {{>title data='Headlights: '}}
+        {{#with headlights}}        
+          <em>Type:</em> <b>{{type}}</b> <br>
+          <em>Brightness:</em> <b>{{brightness}}</b> <br>
+          {{#if automatic}} <b>automatic</b> {{/if}}<br>
+        {{/with}}
+         {{>title data='Sunroof: '}}
+        {{#with sunroof}}
+          <em>Type:</em> <b>{{type}}</b> <br>
+          <em>Size:</em> <b>{{size}}</b> <br>
+          {{#if automatic}} <b>automatic</b> {{/if}}<br>
+        {{/with}}
+      {{/with}}
+      {{>title big=true data='Safety'}}
+      {{#with safety}}
+        {{>title data='Airbags: '}}
+        {{#with airbags}}
+        <em>Front:</em> <b>{{front}}</b> <br>
+        <em>Side:</em> <b>{{side}}</b> <br>
+        <em>Knee:</em> <b>{{knee}}</b> <br>
+        <em>Rear:</em> <b>{{rear}}</b> <br>
+        {{/with}}
+        {{>title data='Assistance: '}}
+        {{#with assistance}}
+        {{#if blind_spot_monitoring}} <b>Blind Spot Monitoring</b> {{/if}}<br>
+        {{#if rear_cross_traffic_alert}} <b> Rear Cross Traffic Alert</b> {{/if}}<br>
+        {{#if lane_departure_warning}} <b>Lane Departure Warning</b> {{/if}}<br>
+        {{#if adaptive_cruise_control}} <b>Adaptive Cruise Control</b> {{/if}}<br>
+        {{#if collision_warning}} <b>Collision Warning</b> {{/if}}<br>
+        {{/with}}
+      {{/with}}
+    {{/with}}
+  </section>
+  <section>
+    {{>title big=true data='Engine'}}
+    {{#with engine}}
+      <em>Type:</em> <b>{{type}}</b> <br>
+      <em>Displacement:</em> <b>{{displacement}}</b> <br>
+      <em>Horsepower:</em> <b>{{horsepower}}</b> <br>
+      <em>Torque:</em> <b>{{torque}}</b> <br>
+      <em>Transmission:</em> <b>{{transmission.type}}, {{transmission.gears}} gears</b> <br>
+    {{/with}}
+    {{>title big=true data='Fuel economy'}}
+    {{#with fuel_economy}}
+    <b>{{city}} city  </b> <br>
+    <b>{{highway}} highway  </b> <br>
+    <b>{{combined}} combined  </b> <br>
+    
+    {{/with}}
+  </section>
+  <section>
+    {{>title big=true data='Price'}}
+    {{#with price}}
+    <table>
+    <tr>
+      <td><em>Base: </em> </td>
+      <td style="text-align: right;"><b>$ {{base}}</b></td>
+    </tr>
+        <tr>
+      <td><em>Destination: </em></td>
+      <td style="text-align: right;"><b>$ {{destination}}</b></td>
+    </tr>
+        {{#with options}}
+        <tr>
+      <td><em>Navigation: </em></td>
+      <td style="text-align: right;"> <b>$ {{navigation}}</b></td>
+    </tr>
+        <tr>
+      <td><em>Moonroof: </em></td>
+      <td style="text-align: right;"><b>$ {{moonroof}}</b></td>
+    </tr>
+        <tr>
+      <td><em>Premium paint: </em></td>
+      <td style="text-align: right;"><b>$ {{premium_paint}}</b></td>
+    </tr>{{/with}}
+        <tr>
+      <th><em>Total: </em></th>
+      <th style="text-align: right;"><b>$ {{total}}</b></th>
+    </tr>
+    </table>
+
+    {{/with}}
+  </section>
+
+</main>
+{{!-- 
+    Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+    Адже наш layout/default.hbs має вже структуру HTML
+--}}
+
