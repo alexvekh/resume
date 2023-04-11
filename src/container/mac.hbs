@@ -1,0 +1,91 @@
+{{! 
+Це код container файлу для summary сторінки, 
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+}}
+<main>
+  <h1>{{name}}</h1>
+  <div>{{description}}</div>
+  <em>Price:</em>
+  <b>
+    $
+    {{price}}</b>
+  <br />
+  <div><em>Category:</em> {{category}}</div><br />
+  <section>
+  {{#with features}}
+    {{#with processor}}
+      <em>Processor: </em> <b>{{brand}}
+        {{model}},
+        {{speed}},
+        {{cores}}
+        cores,
+        {{cache}}
+        cache
+      </b></br />
+    {{/with}}
+
+    {{#with memory}}
+      <em>Memory: </em> <b>{{size}},
+        {{type}},
+        {{speed}}
+      </b></br />
+    {{/with}}
+
+    {{#with storage}}
+      <em>Storage: </em> <b>{{size}}, {{type}}
+      </b></br />
+    {{/with}}
+
+    {{#with display}}
+      <em>Display: </em> <b>{{size}}, ({{resolution}}) {{technology}}, {{color_space}}, {{brightness}}, {{refresh_rate}}
+      </b></br />
+    {{/with}}
+
+    {{#with graphics}}
+      <em>Graphics: </em> <b>{{brand}} {{model}}, {{memory}}
+      </b></br />
+    {{/with}}
+    <br />
+    <em><b> Ports: </b> </em>
+    <ul>
+      {{#each ports}}
+      <li>{{type}}, {{count}} count, 
+        <ul>
+          {{#each features}}
+            <li>{{this}}</li>
+          {{/each}}
+        </ul>
+      </li>
+      {{/each}}
+    </ul>
+
+    {{#with battery}}
+      <em>Battery: </em> <b>{{type}}, {{capacity}}, {{life}}
+      </b></br />
+    {{/with}}
+    
+      <em>Weight: </em> <b>{{weight}} </b><br />
+
+
+    {{#with dimensions}}
+      <em>Dimensions: </em> <b>{{height}} X {{width}} X {{depth}}
+      </b></br />
+    {{/with}}
+          <em>OS: </em> <b>{{operating_system}} </b><br />
+    <ul>
+      {{#each accessories}}
+        <li>{{name}} - $ {{price}}</li>
+
+      {{/each}}
+    </ul>
+    </section>
+
+
+
+  {{/with}}
+
+</main>
+{{!-- 
+    Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+    Адже наш layout/default.hbs має вже структуру HTML
+--}}
