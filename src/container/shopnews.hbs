@@ -6,11 +6,7 @@
 
 <main>
 
-  <div class="breadcrumb pb-3">
-    {{#each breadcrumb}}  
-      <a class="breadcrumb-item" href="{{url}}">{{name}}</a>
-    {{/each}}
-  </div>
+{{> breadcrumb}}
 
   <div>
     {{#with newsData}}
@@ -33,17 +29,7 @@
 {{#with newsOtherBlock}}
       <div class="display-6 text-center mt-5 mb-3"><b>{{title}}</b></div>
 {{#each cards}}
-<div class="col-3">
-  <div class="card text-bg-dark"> 
-    <div class="card-body">
-      <h6 class="card-title">{{title}}
-        {{#if isTop}} <div class="badge rounded-pill text-bg-primary">Top </div>{{/if}}
-        {{#if isNew}}<div class="badge rounded-pill text-bg-danger">New</div>{{/if}}
-      </h6>
-      <p>{{description}}</p>
-    </div>
-  </div>
-</div>
+  {{> shoppost}}
 {{/each}}
 {{/with}}
 </div>
