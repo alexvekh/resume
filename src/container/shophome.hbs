@@ -2,19 +2,9 @@
 Це код container файлу для summary сторінки, 
 в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
 }}
-<header>
-  <div class='nav'>
-    {{#with navigation}}
-      {{#each links}}
-        <div class="nav-item">
-                <a class="nav-link" href='{{href}}'>{{text}}</a>
-        </div>
-      {{/each}}
-      <div class="nav-item"></div>
-      <a href="#" class="nav-link disabled">Disabled</a>
-    {{/with}}
-  </div>
-  
+
+
+<main>
 <div class="row g-2">
 {{#with newsBlock}}
       <div class="display-6 text-center mt-5 mb-3"><b>{{title}}</b></div>
@@ -35,9 +25,7 @@
 </div>
 </div>
 <hr class="my-5">
-</header>
 
-<main>
 
 <div class="col-12 mb-5">
   {{#with goodsBlock}}
@@ -57,22 +45,12 @@
   
   <div class="row gx-2 gy-4">
     {{#each cards}}
-      <div class="col-4">
-        <div class="card">
-          <img src="{{image}}" alt="{{title}} photo">
-          <div class="card-body">
-            <div class="card-title">
-              <h5>{{title}}</h5>
-              
-              {{#if isHot}} <div class="badge rounded-pill text-bg-warning text-uppercase">Hot!</div>{{/if}}
-              {{#if isNew}}<div class="badge rounded-pill text-bg-primary">New</div>{{/if}}
-            </div>
-            <p>{{description}}</p>
-          </div>
-        </div>
-      </div>
+        {{> shopcard}}
     {{/each}}
   </div>
+
+
+
   {{/with}}
 </div>
 
@@ -95,65 +73,9 @@
   </div>
   {{/with}}
 
-  <hr class="my-5">
-
-  {{#with service}}
-  <div class="col-12">
-    <div class="card text-bg-success">
-      <div class="card-body text-center p-2">
-      <div class="card-title"><h2>{{title}}</h2></div>
-      <p class="mb-0 mt-3">{{description}}</p>
-      {{#each buttons}}
-      <div>
-      <button href='{{link}}' class="btn btn-primary btn-sm mt-2">{{text}}</button>
-      </div>
-      {{/each}}
-      </div>
-    </div>
-  </div>
-  {{/with}}
-
-  <hr class="my-5">
+{{> shopaction}}
 
 </main>
-<footer>
-  <div class="row">
-
-  {{#each footer}}
-    <div class="col-2 p-0">
-{{!-- ------------------------------------ 
-      
-      {{#each this}}
-        <a href="{{link}}">{{text}}</a>
-      {{/each}
-this working but for disabled last item we do it manual --}}
-
-<div class="nav flex-column">
-  <div class="nav-item">
-    <a class="nav-link px-0" href="{{this.[0].link}}">{{this.[0].text}}</a>
-  </div>
-</div>
-
-<div class="nav flex-column">
-  <div class="nav-item">
-    <a class="nav-link px-0" href="{{this.[1].link}}">{{this.[1].text}}</a>
-  </div>
-</div>
-
-<div class="nav flex-column">
-  <div class="nav-item">
-    <a class="nav-link px-0" href="{{this.[2].link}}">{{this.[2].text}}</a>
-  </div>
-</div>
-
-<div class="nav flex-column">
-  <div class="nav-item">
-    <a class="nav-link px-0 disabled" href="{{this.[3].link}}">{{this.[3].text}}</a>
-  </div>
-</div>
-    </div>
-  {{/each}}
-</footer>
 
 
 

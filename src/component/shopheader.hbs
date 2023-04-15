@@ -1,0 +1,29 @@
+<header>
+
+  <div class='row'>
+    <div class='col-4'>
+      <img
+        class='ms-5'
+        src='https://picsum.photos/150/60'
+        alt='Logo'
+      />
+    </div>
+    <div class='col-8'>
+      <div class='nav text-end pb-5'>
+        {{#with navigation}}
+          {{#each links}}
+            <div class='nav-item'>
+              <a
+                class='nav-link'
+                href='{{href}}'
+              >{{text}}</a>
+            </div>
+          {{/each}}
+          <div class='nav-item'></div>
+          <a href='#' class='nav-link disabled'>Disabled</a>
+        {{/with}}
+      </div>
+    </div>
+  </div>
+
+</header>
