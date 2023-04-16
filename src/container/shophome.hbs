@@ -9,17 +9,7 @@
 {{#with newsBlock}}
       <div class="display-6 text-center mt-5 mb-3"><b>{{title}}</b></div>
 {{#each cards}}
-<div class="col-3">
-  <div class="card text-bg-dark"> 
-    <div class="card-body">
-      <div class="card-title">{{title}}
-        {{#if isTop}} <div class="badge rounded-pill text-bg-primary">New</div>{{/if}}
-        {{#if isNew}}<div class="badge rounded-pill text-bg-danger">Top</div>{{/if}}
-      </div>
-      <p>{{description}}</p>
-    </div>
-  </div>
-</div>
+  {{> shoppost}}
 {{/each}}
 {{/with}}
 </div>
