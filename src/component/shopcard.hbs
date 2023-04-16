@@ -1,0 +1,19 @@
+<div class='col-4'>
+  <div class='card'>
+    <img src='{{image}}' alt='{{title}} photo' />
+    <div class='card-body'>
+      <div class='card-title'>
+        <h5>{{title}}</h5>
+
+        {{#if isHot}}
+          <div
+            class='badge rounded-pill text-bg-warning text-uppercase'
+          >Hot!</div>{{/if}}
+        {{#if isNew}}<div
+            class='badge rounded-pill text-bg-primary'
+          >New</div>{{/if}}
+      </div>
+      <p>{{description}}</p>
+    </div>
+  </div>
+</div>

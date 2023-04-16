@@ -1,0 +1,22 @@
+<hr class='my-5' />
+
+{{#with service}}
+  <div class='col-12'>
+    <div class='card text-bg-success'>
+      <div class='card-body text-center p-2'>
+        <div class='card-title'><h2>{{title}}</h2></div>
+        <p class='mb-0 mt-3'>{{description}}</p>
+        {{#each buttons}}
+          <div>
+            <button
+              href='{{link}}'
+              class='btn btn-primary btn-sm mt-2'
+            >{{text}}</button>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+{{/with}}
+
+<hr class='my-5' />
