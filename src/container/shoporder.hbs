@@ -168,6 +168,7 @@
         <div>
           <label for='form-label'>{{label}}</label>
           <select class='form-select form-select-lg' type='text' aria-placeholder="{{placeholder}}"/>
+              <option selected>{{placeholder}}</option>
             {{#each options}}
               <option value="{{value}}">{{text}}</option>
             {{/each}}
@@ -180,8 +181,9 @@
         <div>
           <label for="folm-label">{{label}}</label>
           <select class="form-select form-select-sm py-0" type="text" aria-placeholder="{{placeholder}}">
+            <option selected>{{placeholder}}</option>
         {{#each options}}
-          <option value="{{value}}">{{text}}</option> 
+            <option value="{{value}}">{{text}}</option> 
         {{/each}}
           </select>
           <div class="form-text"></div>
@@ -193,7 +195,7 @@
       {{#with friend}}
       <div>
         <label class="form-label mb-0" for="">{{label}}</label>
-        <input class="form-control form-control-lg m-0" type="text" placeholder="{{plaseholder}}">
+        <input class="form-control form-control-lg m-0" type="text" placeholder="{{placeholder}}">
         <div class="form-text">{{caption}}</div>
       </div>      
       {{/with}}
@@ -201,7 +203,7 @@
       {{#with colleague}}
       <div>
         <label class="form-label mb-0" for="">{{label}}</label>
-        <input class="form-control form-control-sm m-0" type="text" placeholder="{{plaseholder}}">
+        <input class="form-control form-control-sm m-0" type="text" placeholder="{{placeholder}}">
         <div class="form-text">{{caption}}</div>
       </div>  
       {{/with}}
