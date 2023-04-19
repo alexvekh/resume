@@ -1,0 +1,23 @@
+<div class='row'>
+  <div class='col-4'>{{number}} <br /> {{status}} </div>
+  <div class='col-2'>{{amount.title}}
+    <br />
+    {{amount.value}}
+  </div>
+  <div class='col-4 ps-0'>{{#each images}}
+      <img
+        class='p-1'
+        src='{{this}}'
+        width='60px'
+        alt='image'
+      />
+    {{/each}}
+  </div>
+  {{#with button}}
+    <div class='col-2 ps-0'><button
+        class='btn btn-primary'
+        href='{{link}}'
+      >{{text}} </button></div>
+  {{/with}}
+</div>
+<hr />

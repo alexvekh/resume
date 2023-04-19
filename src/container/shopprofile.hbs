@@ -1,0 +1,246 @@
+{{! 
+Це код container файлу для summary сторінки, 
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+}}
+
+<main>
+
+  <h1 class='py-3'>{{header}}</h1>
+
+  {{#with purchase}}
+
+  
+
+    <div class="pb-4">      
+        <ul class='nav nav-tabs'>
+          {{#each tabs}}
+            <li class='nav-item'>
+              <a href='#' class='nav-link
+                {{#if @first}} active{{/if}}
+              '>{{this}}</a>
+            </li>
+          {{/each}}
+        </ul>
+    </div>
+
+    <div class='row g-2'>
+      {{#with actionBlock}}
+      <div class="col-4" >
+        <input class='form-control' type='text' placeholder='{{input.placeholder}}'>
+      </div>
+      <div class="col-8">
+        {{#each buttons}}
+          <button class="btn 
+              {{#if isSuccess}} btn-success {{/if}}
+              {{#if isOutline}} btn-outline-success {{/if}}
+              {{#if isDanger}} btn-outline-danger {{/if}}
+          " href="{{link}}">{{text}}</button>
+        {{/each}}
+      </div>
+      {{/with}}
+    </div>
+
+    <hr>
+
+    {{#each itemList}}
+      {{> purchaseItem}}
+    {{/each}}
+  {{/with}}
+
+  <hr class='my-5' />
+
+  {{#with userInfo}}
+    <h2 class="pb-5">{{title}}</h2>
+    <div class="card">
+      <div class="card-body pt-2 pb-2">
+        {{#with profileData}}
+        <h3 class="pt-0">{{title}}</h3>
+
+
+        <div class="card my-3">
+          <div class="card-body py-1">
+            <div class="row g-2">
+              {{#each fullName}}
+              <div class="col-4">
+                {{this.title}} <br> <b> {{this.value}} </b>
+              </div>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+
+        <div class="card my-3">
+          <div class="card-body py-1">
+            <div class="row g-2">
+              {{#each otherInfo}}
+              <div class="col-4">
+                {{this.title}} <br> <b> {{this.value}} </b>
+              </div>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+        {{/with}}
+
+        <div class="card mt-3 mb-0">
+          <div class="card-body py-2">
+            <div class="row g-2">
+              {{#each buttons}}
+              <div class="col-4">
+                <button class="btn
+                  {{#if isPrimary}} btn-primary {{/if}}
+                  {{#if isSecondary}} btn-outline-secondary {{/if}}
+                  {{#if isDanger}} btn-outline-danger {{/if}}
+                btn-sm" href="{{link}}">{{text}} </button>
+              </div>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+    <div class="card mt-2">
+      <div class="card-body pt-2 pb-2">
+        {{#with recipients}}
+        <h3 class="pt-0">{{title}}</h3>
+        <div class="row g-2">
+          {{#each users}}
+            <div class="col-4">
+              <div class="card mt-3">
+                <div class="card-body py-1 ps-2 pe-1 me-0">
+                  <b>{{name}} </b><br> {{phone}} 
+                  <div>
+                    <button class="btn btn-primary btn-sm mt-2" href="{{button.link}}" >{{button.text}} </button>
+                  </div>
+              </div>
+            </div>
+          </div>
+          {{/each}}
+        </div>
+        {{/with}}
+      </div>
+    </div>
+
+    <div class="card mt-2">
+      <div class="card-body pt-2 pb-2">
+        {{#with contacts}}
+        <h3 class="pt-0">{{title}}</h3>
+        <div class="row g-2">
+          
+          <div class="col-4">
+              <div class="card mt-3">
+                <div class="card-body py-1 ps-2 pe-1 me-0">
+                  {{contactData.phone.title}}<br> <b>{{contactData.phone.value}}</b> 
+                  <div>
+                    <button class="btn {{#if buttons.[0].isPrimary}} btn-primary{{/if}} btn-sm"
+                            href="{{buttons.[0].link}}" >{{buttons.[0].text}} </button>
+                    
+                  </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-4">
+              <div class="card mt-3">
+                <div class="card-body py-1 ps-2 pe-1 me-0">
+                  {{contactData.additionalPhone.title}}<br> <b>{{contactData.additionalPhone.value}}</b> 
+                  <div>
+                   <button class="btn {{#if buttons.[1].isSecondary}} btn-outline-secondary {{/if}} btn-sm"
+                            href="{{buttons.[1].link}}" >{{buttons.[1].text}} </button>
+                    
+                  </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-4">
+              <div class="card mt-3">
+                <div class="card-body py-1 ps-2 pe-1 me-0">
+                  {{contactData.email.title}}<br> <b>{{contactData.email.value}}</b> 
+                  <div>
+                    <button class="btn {{#if buttons.[2].isDanger}} btn-outline-danger{{/if}} btn-sm"
+                            href="{{buttons.[2].link}}" >{{buttons.[2].text}} </button>
+                    
+                  </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        {{/with}}
+      </div>
+    </div>
+
+<div class="card mt-2">
+      <div class="card-body pt-2 pb-2">
+        {{#with contacts}}
+        <h3 class="pt-0">{{title}} ще раз</h3>
+        <div class="row g-2">
+          {{#each contactData}}
+          <div class="col-4">
+              <div class="card mt-3">
+                <div class="card-body py-1 ps-2 pe-1 me-0">
+                  {{this.title}}<br> <b>{{this.value}}</b> 
+                  <div>
+                    {{!-- Сюди треба вставити кнопки з iншого loop --}}
+                  </div>
+
+              </div>
+            </div>
+          </div>
+          {{/each}}
+
+        {{!-- А це той iнший loop --}}
+        <div class="row g-2">
+         {{#each buttons}}
+         <div class="col-4">
+            <div>
+              <button class="btn
+                  {{#if isPrimary}} btn-primary{{/if}}
+                  {{#if isSecondary}} btn-outline-secondary {{/if}}
+                  {{#if isDanger}} btn-outline-danger{{/if}}
+              btn-sm" href="{{link}}" >{{text}} </button>
+            </div>
+          </div>  
+
+         
+         {{/each}}
+        </div>
+
+
+        </div>
+        {{/with}}
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+  {{/with}}
+
+
+
+
+
+
+
+
+
+
+  <hr class='my-5' />
+
+</main>
+
+{{!-- 
+    Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+    Адже наш layout/default.hbs має вже структуру HTML
+--}}
