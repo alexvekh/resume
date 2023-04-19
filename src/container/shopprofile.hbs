@@ -125,7 +125,7 @@
       </div>
     </div>
 
-    {{!-- <div class="card mt-2">
+    <div class="card mt-2">
       <div class="card-body pt-2 pb-2">
         {{#with contacts}}
         <h3 class="pt-0">{{title}}</h3>
@@ -136,7 +136,8 @@
                 <div class="card-body py-1 ps-2 pe-1 me-0">
                   {{contactData.phone.title}}<br> <b>{{contactData.phone.value}}</b> 
                   <div>
-                    <button href="{{buttons.link}}" >{{buttons.[].text}} </button>
+                    <button class="btn {{#if buttons.[0].isPrimary}} btn-primary{{/if}} btn-sm"
+                            href="{{buttons.[0].link}}" >{{buttons.[0].text}} </button>
                     
                   </div>
               </div>
@@ -146,9 +147,11 @@
           <div class="col-4">
               <div class="card mt-3">
                 <div class="card-body py-1 ps-2 pe-1 me-0">
-                  <b>{{title}} </b><br> {{value}} 
+                  {{contactData.additionalPhone.title}}<br> <b>{{contactData.additionalPhone.value}}</b> 
                   <div>
-                    <button class="btn btn-primary btn-sm mt-2" href="{{link}}" >{{button.text}} </button>
+                   <button class="btn {{#if buttons.[1].isSecondary}} btn-outline-secondary {{/if}} btn-sm"
+                            href="{{buttons.[1].link}}" >{{buttons.[1].text}} </button>
+                    
                   </div>
               </div>
             </div>
@@ -157,9 +160,11 @@
           <div class="col-4">
               <div class="card mt-3">
                 <div class="card-body py-1 ps-2 pe-1 me-0">
-                  <b>{{title}} </b><br> {{value}} 
+                  {{contactData.email.title}}<br> <b>{{contactData.email.value}}</b> 
                   <div>
-                    <button class="btn btn-primary btn-sm mt-2" href="{{link}}" >{{button.text}} </button>
+                    <button class="btn {{#if buttons.[2].isDanger}} btn-outline-danger{{/if}} btn-sm"
+                            href="{{buttons.[2].link}}" >{{buttons.[2].text}} </button>
+                    
                   </div>
               </div>
             </div>
@@ -168,12 +173,12 @@
         </div>
         {{/with}}
       </div>
-    </div> --}}
+    </div>
 
 <div class="card mt-2">
       <div class="card-body pt-2 pb-2">
         {{#with contacts}}
-        <h3 class="pt-0">{{title}}</h3>
+        <h3 class="pt-0">{{title}} ще раз</h3>
         <div class="row g-2">
           {{#each contactData}}
           <div class="col-4">
