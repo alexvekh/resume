@@ -1,0 +1,122 @@
+{{! 
+Це код container файлу для summary сторінки, 
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+}}
+
+<main>
+
+  {{> breadcrumb}}
+
+  <h1>{{header}}</h1>
+
+    <div class="row g-2 my-3">
+      {{#each sortBlock}}
+        <div class="col-3">
+          <select class="form-select form-select-sm" name="" id="" >
+            <option selcted>{{placeholder}}</option>
+            {{#each options}}
+              <option value="{{value}}">{{text}} </option>
+            {{/each}}
+          </select>
+        </div>
+      {{/each}}
+    </div>
+
+
+  <div class="row g-2 my-3">
+    
+    <div class="col-4">
+      <div class="card me-0">        
+        <div class="card-body">
+          {{#with filterBlock}}
+            {{#with sellers}}
+            <div>{{title}}</div>
+            {{#each list}}  
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="" >
+              <label class="form-check-label" for="">{{value}}</label>
+            </div>
+            {{/each}}
+            {{/with}}
+            <hr>
+        
+            {{#with brands}}
+            <div>{{title}}</div>
+            <input class="form-control" type="text" placeholder="{{input.placeholder}}">
+
+
+            {{#each options}}  
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="" >
+              <label class="form-check-label" for="">{{value}}</label>
+            </div>
+            {{/each}}
+            {{/with}}
+            <hr>
+
+            {{#with price}}
+            <div>{{title}}</div>
+            <input class="form-control form-control-sm mt-2" type="text" placeholder="{{range.from}}">
+            <input class="form-control form-control-sm mt-2" type="text" placeholder="{{range.to}}">
+            <div class="mt-2"><button class="btn btn-outline-dark btn-sm" href=" {{button.link}} ">{{button.text}}</button> </div>
+            {{/with}}
+            <hr>
+
+            {{#each filterList}}
+            <div>{{title}}</div>
+            {{#each options}}  
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="" >
+              <label class="form-check-label" for="">{{value}}</label>
+            </div>
+            {{/each}}
+            <hr>
+            {{/each}}
+
+          {{/with}}
+
+        </div>
+      </div>
+    </div>
+   
+    <div class="col-8">
+      <div class="row g-2">
+      {{#each goodsList}}
+      <div class="col-6">
+
+        {{> catalogItem}}
+
+      </div>
+      {{/each}}
+    </div>
+  </div>
+  
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <br>
+  <br>
+  <br>
+
+
+
+{{> shopaction}}
+<hr class='my-5' />
+</main>
+
+{{!-- 
+    Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+    Адже наш layout/default.hbs має вже структуру HTML
+--}}
