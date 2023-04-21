@@ -40,7 +40,9 @@ router.get('/', function (req, res) {
   // res.render генерує нам HTML сторінку
 
   //            ↙ cюди вводимо назву файлу з сontainer
-  res.render('index', {})
+  res.render('index', {
+    layout: 'index',
+  })
   //                  ↑↑ сюди вводимо JSON дані
 })
 
@@ -83,16 +85,16 @@ router.get('/summary', function (req, res) {
 // ================================================================
 
 //              ↙ тут вводимо шлях (PATH) до сторінки
-router.get('/skils', function (req, res) {
+router.get('/skills', function (req, res) {
   //             ↙ cюди вводимо назву файлу з сontainer
-  res.render('skils', {
+  res.render('skills', {
     // ↙ сюди вводимо JSON дані
-    page: { title: 'Resume | Skils' },
+    page: { title: 'Resume | Skills' },
 
     header,
 
     main: {
-      skils: [
+      skills: [
         { name: 'HTML', point: 9, isTop: true },
         { name: 'Handlebars', point: 6, isTop: true },
         { name: 'VS Code', point: 6, isTop: true },
@@ -158,16 +160,16 @@ router.get('/education', function (req, res) {
   })
 })
 
-router.get('/skils', function (req, res) {
+router.get('/skills', function (req, res) {
   //             ↙ cюди вводимо назву файлу з сontainer
-  res.render('skils', {
+  res.render('skills', {
     // ↙ сюди вводимо JSON дані
-    page: { title: 'Resume | Skils' },
+    page: { title: 'Resume | Skills' },
 
     header,
 
     main: {
-      skils: [
+      skills: [
         { name: 'HTML', point: 9, isTop: true },
         { name: 'Handlebars', point: 6, isTop: true },
         { name: 'VS Code', point: 6, isTop: true },
