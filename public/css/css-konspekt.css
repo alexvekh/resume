@@ -1,0 +1,37 @@
+
+:root {background: purple;}   /* :root abstract tag, parent to html   */
+
+* {color: red}     /* global */
+
+html {background: blue;}      /* tag */
+h1 {color:green;} 
+
+.box {background: #a7a5a5;}  /*  class="box" */
+
+#user {background: blue;}      /*   id="user"  */
+
+h1, h2, .box, #user {color: red }
+
+h2.box {}   /* <h2 class="box"></h2> */
+
+h2#user /* <h2 id="user"></h2> */
+
+div > p  /* <div> <p>  </p > </div>   dauther selector */
+
+#box > p /* <   id="box"> <p>  </p > </   > */
+
+footer > .user
+
+footer p
+footer >> p  /* children selector  (all p inside footer) */ 
+
+H1 + p /* sislter selelctor (p next to h1) */
+
+h1 ~ p /* next door selector*/
+
+h1 ~ * > p  /* p inside any tag clouse to h1 */
+
+
+
+
+
