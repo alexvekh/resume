@@ -75,7 +75,7 @@
     {{#each delivery_type}}
       <div class="form-check">
         <label for="" class="form-check-label">{{type}}</label>
-        <input name="food" type="radio" class="form-check-input">
+        <input name="delivery_type" type="radio" class="form-check-input" {{#if @first}} checked {{/if}}>
       </div>
     {{/each}}
   <hr>
@@ -84,7 +84,7 @@
       {{#each list}}
       <div class="form-check">
         <label for="" class="form-check-label">{{type}}</label>
-        <input name="food" type="radio" class="form-check-input">
+        <input name="payment-пше икфтсрlist" type="radio" class="form-check-input"{{#if @first}} checked {{/if}}>
         <div class='form-text mt-0'>{{description}}</div>
       </div>
       {{/each}}
