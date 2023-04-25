@@ -31,7 +31,35 @@ h1 ~ p /* next door selector*/
 
 h1 ~ * > p  /* p inside any tag clouse to h1 */
 
+------------- 
+Pseudo classes
 
+    :first-child
+li:first-child    /* selector first cild (first li) */
 
+.item:first-child
+
+.clas-first             /*   ?   (first class)  */
+
+    :last-child             /*  last element        */
+    :only-child             /*  only if 1 element   */
+    :first-of-type          /* first tag or class type in the perent tag */
+    :last-of-type
+    :only-of-type
+    :nth-child(2)           /*  порядковий номер елементу   */
+            (even)        /*  кожен парний елемент   */
+            (odd)         /*  кожен непарний елемент   */
+            (3n)          /*  кожен 3-й елемент   */
+            (3n+1)        /*  кожен 3-й елемент зі здвигом вниз на 1   */
+            (3n-2)
+    :nth-last-child(...)    /*  те саме :nth-child(...) але рахуючи з кінця   */
+    :nth-of-type(...)       /*  те саме :nth-child(...) але серед кожного типу   */
+    :nth-last-of-type(...)  /*  те саме :nth-of-type(...) але серед кожного типу   */
+    :not(s)
+p:not(.big)              /*  p який не має класу .big   */
+    .big:not(p)              /*  всі елементи з класом .big окрім p   */
+    :empty                   /*  селектор пустого контенту   */
+p:empty                  /*  всі пусті елементи p   */
+p:empty {height: 10px, background: red,}      /*  paint p like red line   */
 
 
